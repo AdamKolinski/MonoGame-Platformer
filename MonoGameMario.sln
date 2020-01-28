@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGameMario", "MonoGameMario\MonoGameMario.csproj", "{8F4865E7-633E-42C8-B845-43B5D01E949F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F4865E7-633E-42C8-B845-43B5D01E949F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F4865E7-633E-42C8-B845-43B5D01E949F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F4865E7-633E-42C8-B845-43B5D01E949F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F4865E7-633E-42C8-B845-43B5D01E949F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7455BEC1-3F4A-4D4E-8BB1-0B342691B8D1}
+	EndGlobalSection
+EndGlobal

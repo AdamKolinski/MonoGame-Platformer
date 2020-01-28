@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/mario.png","/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/bin/DesktopGL/mario.xnb","TextureProcessor","Texture2DContent",13150,344149,0,201073
+"/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/mario_tileset.png","/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/bin/DesktopGL/mario_tileset.xnb","TextureProcessor","Texture2DContent",4148,141397,0,013277
+"/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/white.png","/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/bin/DesktopGL/pixel.xnb","TextureProcessor","Texture2DContent",67,89,0,001962
