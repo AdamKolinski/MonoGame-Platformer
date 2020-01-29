@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -18,11 +19,16 @@ namespace MonoGameMario.Source
         private Vector2 _worldScale;
 
         public static List<Sprite> CollisionObjects;
+        public static int ScreenWidth, ScreenHeight;
+
+        private Camera _camera;
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this) {PreferMultiSampling = false};
-
+            ScreenWidth = Window.ClientBounds.Width;
+            ScreenHeight = Window.ClientBounds.Height;
+            
             IsFixedTimeStep = false;
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
@@ -33,7 +39,7 @@ namespace MonoGameMario.Source
             CollisionObjects = new List<Sprite>();
             Input.Initialize();
             _worldScale = new Vector2(2, 2);
-
+            _camera = new Camera();
             base.Initialize();
         }
         
@@ -78,10 +84,13 @@ namespace MonoGameMario.Source
         {
             Input.Update();
             
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Input.GetKeyDown(Keys.Escape))
                 Exit();
+            if (Input.GetKeyDown(Keys.L))
+                _camera.Lock = !_camera.Lock;
             
             _player.Update(gameTime);
+            _camera.Update(_player);
             base.Update(gameTime);
         }
 
@@ -90,8 +99,9 @@ namespace MonoGameMario.Source
             //GraphicsDevice.Clear(Color.CornflowerBlue);
             GraphicsDevice.Clear(new Color(4, 156, 216));
             
-            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
-            
+            //_spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, _camera.Transform);
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: _camera.Transform);
+
             //_multiTiledTest.Draw();
             foreach (var obj in CollisionObjects)
             {
