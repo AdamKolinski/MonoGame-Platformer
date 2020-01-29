@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/mario.png</File>
-    <File>/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/mario_tileset.png</File>
-    <File>/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/white.png</File>
+    <File>C:/MonoGame Workspace/MonoGamePlatformer/MonoGame-Platformer/MonoGameMario/Content/mario.png</File>
+    <File>C:/MonoGame Workspace/MonoGamePlatformer/MonoGame-Platformer/MonoGameMario/Content/mario_tileset.png</File>
+    <File>C:/MonoGame Workspace/MonoGamePlatformer/MonoGame-Platformer/MonoGameMario/Content/white.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

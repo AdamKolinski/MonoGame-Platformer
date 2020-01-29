@@ -18,6 +18,7 @@ namespace MonoGameMario
         private readonly float _weight;
         private readonly Sprite _target;
         public float GravityScale { get; set; }
+        public bool Grounded { get; set; }
 
         public Vector2 Velocity
         {
@@ -34,19 +35,14 @@ namespace MonoGameMario
 
         public void Update(GameTime gameTime)
         {
-            _velocity.Y += _weight * gameTime.ElapsedGameTime.Milliseconds/10000.0f * GravityScale;
+            _velocity.Y += _weight * gameTime.ElapsedGameTime.Milliseconds/3000.0f * GravityScale;
+            Grounded = false;
             
             _target.Move(new Vector2(0, (int)_velocity.Y));
             CheckCollisions(Direction.Vertical);
 
             _target.Move(new Vector2((int)_velocity.X, 0));
-            if(!Keyboard.GetState().IsKeyDown(Keys.K))
-                CheckCollisions(Direction.Horizontal);
-            
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
-            {
-                _velocity.Y = -5;
-            }
+            CheckCollisions(Direction.Horizontal);
         }
 
         private void CheckCollisions(Direction direction)
@@ -68,8 +64,9 @@ namespace MonoGameMario
                         }
                         else
                         {
-                            _velocity.Y = 0;
+                            _velocity.Y = 1;
                             _target.Move(new Vector2(0, (int)depth.Y));
+                            Grounded = true;
                         }
                     }
                 }

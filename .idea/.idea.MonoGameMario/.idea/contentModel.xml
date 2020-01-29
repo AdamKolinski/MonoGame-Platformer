@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\MonoGame Workspace\MonoGamePlatformer\MonoGame-Platformer" t="IncludeFlat">
+      <e p="MonoGameMario" t="IncludeRecursive">
+        <e p="Animation.cs" t="Include" />
+        <e p="Animator.cs" t="Include" />
+        <e p="app.manifest" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Content" t="Include">
+          <e p="Content.mgcb" t="Include" />
+        </e>
+        <e p="Game1.cs" t="Include" />
+        <e p="Helpers.cs" t="Include" />
+        <e p="Icon.bmp" t="Include" />
+        <e p="Icon.ico" t="Include" />
+        <e p="Input.cs" t="Include" />
+        <e p="Mathf.cs" t="Include" />
+        <e p="MonoGameMario.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Physics.cs" t="Include" />
+        <e p="Player.cs" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Sprite.cs" t="Include" />
+        <e p="TiledSprite.cs" t="Include" />
+      </e>
+      <e p="MonoGameMario.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\libopenal.1.dylib" t="Include" />
+    <e p="C:\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\libSDL2-2.0.0.dylib" t="Include" />
+    <e p="C:\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll.config" t="Include" />
+    <e p="C:\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\x64" t="Include">
+      <e p="libopenal.so.1" t="Include" />
+      <e p="libSDL2-2.0.so.0" t="Include" />
+      <e p="SDL2.dll" t="Include" />
+      <e p="soft_oal.dll" t="Include" />
+    </e>
+    <e p="C:\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\x86" t="Include">
+      <e p="libopenal.so.1" t="Include" />
+      <e p="libSDL2-2.0.so.0" t="Include" />
+      <e p="SDL2.dll" t="Include" />
+      <e p="soft_oal.dll" t="Include" />
+    </e>
+    <e p="C:\Users\Adam\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Adam\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_MonoGameMario.1923819051.00" t="ExcludeRecursive" />
+  </component>
+</project>

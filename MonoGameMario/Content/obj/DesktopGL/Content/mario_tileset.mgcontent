@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/mario_tileset.png</SourceFile>
-  <SourceTime>2020-01-23T00:31:20+01:00</SourceTime>
-  <DestFile>/Users/adam/Desktop/MonoGameMario/MonoGameMario/Content/bin/DesktopGL/Content/mario_tileset.xnb</DestFile>
-  <DestTime>2020-01-24T16:31:29.5860046+01:00</DestTime>
+  <SourceFile>C:/MonoGame Workspace/MonoGamePlatformer/MonoGame-Platformer/MonoGameMario/Content/mario_tileset.png</SourceFile>
+  <SourceTime>2020-01-28T21:57:13.0893745+01:00</SourceTime>
+  <DestFile>C:/MonoGame Workspace/MonoGamePlatformer/MonoGame-Platformer/MonoGameMario/Content/bin/DesktopGL/Content/mario_tileset.xnb</DestFile>
+  <DestTime>2020-01-29T20:33:32.9040333+01:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2018-12-08T17:35:14+01:00</ImporterTime>
+  <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2018-12-08T17:35:14+01:00</ProcessorTime>
+  <ProcessorTime>2018-12-08T17:35:54+01:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

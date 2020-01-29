@@ -46,7 +46,7 @@ namespace MonoGamePlatformer
             Helpers.pixel = Content.Load<Texture2D>("pixel");
             
             _player = new Player(_spriteBatch, Content.Load<Texture2D>("mario"), new Vector2(320, 100), new Vector2(1, 1), 21, 2, 2);
-            _obstacle = new TiledSprite(_spriteBatch, Content.Load<Texture2D>("mario_tileset"), new Vector2(320, 320), new Vector2(10, 2), 23, 6, 2);
+            _obstacle = new TiledSprite(_spriteBatch, Content.Load<Texture2D>("mario_tileset"), new Vector2(200, 320), new Vector2(30, 2), 23, 6, 2);
             _obstacle2 = new TiledSprite(_spriteBatch, Content.Load<Texture2D>("mario_tileset"), new Vector2(360, 360), new Vector2(2, 2), 23, 6, 2);
             int[,] tiles =
             {
@@ -96,7 +96,9 @@ namespace MonoGamePlatformer
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(new Color(4, 156, 216));
+            
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
             
             // _multiTiledTest.Draw();
