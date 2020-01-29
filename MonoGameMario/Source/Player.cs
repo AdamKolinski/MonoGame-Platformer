@@ -14,7 +14,6 @@ namespace MonoGameMario.Source
         private Physics _physics;
         private float _movementSpeed, _jumpForce;
         private Vector2 input;
-        float tmpVel;
 
         protected override void Initialize()
         {
@@ -40,7 +39,7 @@ namespace MonoGameMario.Source
             _physics.Update(gameTime);
             _animator.Update(gameTime, ref TileIndex);
 
-            Vector2 input = new Vector2(Input.GetAxis("Horizontal"), _physics.Velocity.Y);
+            input = new Vector2(Input.GetAxis("Horizontal"), _physics.Velocity.Y);
             
             if (input.X != 0 && _physics.Grounded)
             {
@@ -66,16 +65,11 @@ namespace MonoGameMario.Source
             if (Keyboard.GetState().IsKeyDown(Keys.Space) && _physics.Grounded)
                 _physics.Velocity = new Vector2(_physics.Velocity.X, -_jumpForce);
             
-            //tmpVel = Mathf.Lerp(tmpVel, input.X * _movementSpeed, gameTime.ElapsedGameTime.Milliseconds/500f*_movementSpeed);
-            
-            //Console.WriteLine(tmpVel);
             _physics.Velocity = new Vector2(input.X * _movementSpeed, _physics.Velocity.Y);
-            if(Input.GetKeyDown(Keys.K)) Console.WriteLine("Pressed K!");
         }
 
         private void OnCollisionEnter(Sprite other)
         {
-            //Console.WriteLine("On Collision Enter");
             if (other.Rect.Location.Y < Rect.Location.Y && other is BreakableSprite breakableSprite)
             { 
                 _physics.Velocity = new Vector2(_physics.Velocity.X, 0);
