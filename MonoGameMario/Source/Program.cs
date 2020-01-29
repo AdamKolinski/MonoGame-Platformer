@@ -1,6 +1,6 @@
-﻿﻿using System;
+﻿using System;
 
-namespace MonoGamePlatformer
+namespace MonoGameMario.Source
 {
     /// <summary>
     /// The main class.

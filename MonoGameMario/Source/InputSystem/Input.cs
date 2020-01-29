@@ -1,25 +1,12 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
 
-namespace MonoGameMario
+namespace MonoGameMario.Source.InputSystem
 {
-    public class Axis
-    {
-        public string name;
-        public float value;
-        public Keys positiveKey, negativeKey;
-
-        public Axis(string name, Keys positiveKey, Keys negativeKey)
-        {
-            this.name = name;
-            this.positiveKey = positiveKey;
-            this.negativeKey = negativeKey;
-        }
-    }
-    
     public class Input
     {
         private static readonly List<Axis> Axes = new List<Axis>();
+        private static KeyboardState _currentKeyboardState, _previousKeyboardState;
 
         public static void Initialize()
         {
@@ -36,7 +23,11 @@ namespace MonoGameMario
             }
             return 0;
         }
-
+        public static bool GetKeyDown(Keys key)
+        {
+            GetState();
+            return _currentKeyboardState.IsKeyDown(key) && !_previousKeyboardState.IsKeyDown(key);
+        }
         public static void Update()
         {
             foreach (var axis in Axes)
@@ -45,6 +36,13 @@ namespace MonoGameMario
                 else if (Keyboard.GetState().IsKeyDown(axis.negativeKey)) axis.value = -1;
                 else axis.value = 0;
             }
+
+        }
+
+        private static void GetState()
+        {
+            _previousKeyboardState = _currentKeyboardState;
+            _currentKeyboardState = Keyboard.GetState();
         }
         
     }

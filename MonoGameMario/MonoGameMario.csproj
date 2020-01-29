@@ -42,18 +42,21 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Animation.cs" />
-    <Compile Include="Animator.cs" />
-    <Compile Include="Game1.cs" />
-    <Compile Include="Helpers.cs" />
-    <Compile Include="Input.cs" />
-    <Compile Include="Mathf.cs" />
-    <Compile Include="Physics.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sprite.cs" />
-    <Compile Include="TiledSprite.cs" />
+    <Compile Include="Source\Animation\Animation.cs" />
+    <Compile Include="Source\Animation\Animator.cs" />
+    <Compile Include="Source\Game1.cs" />
+    <Compile Include="Source\Helpers.cs" />
+    <Compile Include="Source\IDestructible.cs" />
+    <Compile Include="Source\InputSystem\Axis.cs" />
+    <Compile Include="Source\InputSystem\Input.cs" />
+    <Compile Include="Source\Mathf.cs" />
+    <Compile Include="Source\Physics.cs" />
+    <Compile Include="Source\Player.cs" />
+    <Compile Include="Source\Program.cs" />
+    <Compile Include="Source\Sprites\BreakableSprite.cs" />
+    <Compile Include="Source\Sprites\Sprite.cs" />
+    <Compile Include="Source\Sprites\TiledSprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

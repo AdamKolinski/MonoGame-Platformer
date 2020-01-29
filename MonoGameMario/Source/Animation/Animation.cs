@@ -1,6 +1,6 @@
-using MonoGamePlatformer;
+using MonoGameMario.Source.Sprites;
 
-namespace MonoGameMario
+namespace MonoGameMario.Source.Animation
 {
     public class Animation
     {

@@ -2,9 +2,11 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGamePlatformer;
+using MonoGameMario.Source.Animation;
+using MonoGameMario.Source.InputSystem;
+using MonoGameMario.Source.Sprites;
 
-namespace MonoGameMario
+namespace MonoGameMario.Source
 {
     public class Player : TiledSprite
     {
@@ -18,6 +20,8 @@ namespace MonoGameMario
         {
             base.Initialize();
             _physics = new Physics(this,90);
+            _physics.OnCollisionEnter += OnCollisionEnter;
+            
             _jumpForce = 10;
             
             _animator = new Animator();
@@ -66,8 +70,19 @@ namespace MonoGameMario
             
             //Console.WriteLine(tmpVel);
             _physics.Velocity = new Vector2(input.X * _movementSpeed, _physics.Velocity.Y);
+            if(Input.GetKeyDown(Keys.K)) Console.WriteLine("Pressed K!");
         }
 
+        private void OnCollisionEnter(Sprite other)
+        {
+            //Console.WriteLine("On Collision Enter");
+            if (other.Rect.Location.Y < Rect.Location.Y && other is BreakableSprite breakableSprite)
+            { 
+                _physics.Velocity = new Vector2(_physics.Velocity.X, 0);
+                breakableSprite.Destroy();
+            }
+        }
+        
         #region Constructors
         public Player(SpriteBatch spriteBatch, Texture2D texture, Vector2 position, int rows, int columns, int tileIndex, float movementSpeed = 3) : base(spriteBatch, texture, position, rows, columns, tileIndex)
         {

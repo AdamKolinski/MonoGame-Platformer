@@ -1,4 +1,4 @@
-namespace MonoGameMario
+namespace MonoGameMario.Source
 {
     public class Mathf
     {

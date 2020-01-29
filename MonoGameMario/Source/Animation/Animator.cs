@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using MonoGameMario;
 
-namespace MonoGamePlatformer
+namespace MonoGameMario.Source.Animation
 {
     public class Animator
     {
