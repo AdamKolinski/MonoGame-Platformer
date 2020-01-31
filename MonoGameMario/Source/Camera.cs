@@ -1,31 +1,31 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using MonoGameMario.Source;
-using MonoGameMario.Source.InputSystem;
+﻿using Microsoft.Xna.Framework;
 using MonoGameMario.Source.Sprites;
 
-public class Camera
+namespace MonoGameMario.Source
 {
-    public Matrix Transform { get; private set; }
-    public bool Lock;
-    
-    public void Update(Sprite _target)
+    public class Camera
     {
-        if(Lock) return;
-        
-        var position = Matrix.CreateTranslation(
-            -_target.Rect.Location.X - (_target.Rect.Width / 2),
-            -_target.Rect.Location.Y - (_target.Rect.Height / 2),
-            0
-            );
+        public Matrix Transform { get; private set; }
+        public bool Lock;
 
-        var offset = Matrix.CreateTranslation(
-            Game1.ScreenWidth / 2,
-            Game1.ScreenHeight /2,
-            0
-            );
+        public void Update(Sprite target)
+        {
+            if (!Lock)
+            {
+                var position = Matrix.CreateTranslation(
+                    -target.Rect.Location.X - (target.Rect.Width / 2),
+                    -target.Rect.Location.Y - (target.Rect.Height / 2),
+                    0
+                );
 
-        Transform = position * offset;
+                var offset = Matrix.CreateTranslation(
+                    (float) Game1.ScreenWidth / 2,
+                    (float) Game1.ScreenHeight / 2,
+                    0
+                );
+
+                Transform = position * offset;
+            }
+        }
     }
 }

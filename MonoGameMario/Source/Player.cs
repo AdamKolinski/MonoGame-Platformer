@@ -14,7 +14,8 @@ namespace MonoGameMario.Source
         private Physics _physics;
         private float _movementSpeed, _jumpForce;
         private Vector2 input;
-
+        float acceleration;
+        bool turning;
         protected override void Initialize()
         {
             base.Initialize();
@@ -22,15 +23,18 @@ namespace MonoGameMario.Source
             _physics.OnCollisionEnter += OnCollisionEnter;
             
             _jumpForce = 10;
+            _movementSpeed = 4;
             
             _animator = new Animator();
             int[] walkAnimation = { 2, 1, 3 };
             int[] idleAnimation = { 0 };
             int[] jumpAnimation = { 5 };
+            int[] turnAnimation = { 4 };
             
             _animator.CreateAnimation("Walk", walkAnimation, 0.2f,true);
             _animator.CreateAnimation("Idle", idleAnimation, 0.3f,true);
             _animator.CreateAnimation("Jump", jumpAnimation, 0.3f,true);
+            _animator.CreateAnimation("Turn", turnAnimation, 0.3f,true);
             _animator.Play("Idle");
         }
 
@@ -41,31 +45,40 @@ namespace MonoGameMario.Source
 
             input = new Vector2(Input.GetAxis("Horizontal"), _physics.Velocity.Y);
             
-            if (input.X != 0 && _physics.Grounded)
+            if (Math.Abs(input.X) > 0 )
             {
-                _animator.Play("Walk");
+                acceleration = Mathf.Lerp(acceleration, input.X, gameTime.ElapsedGameTime.Milliseconds / 1000f * 1.5f);
+                if ((int) (Math.Abs(acceleration) * 10) >= 5f &&
+                    (Math.Sign(input.X) < Math.Sign(acceleration) || Math.Sign(input.X) > Math.Sign(acceleration)))
+                {
+                    _animator.Play("Turn");
+                    turning = true;
+                }
+
+                if ((int) (Math.Abs(acceleration) * 10) == 0) turning = false;
+                if(!turning) _animator.Play("Walk");
             }
             else
             {
                 _animator.Play("Idle");
+                acceleration = Mathf.Lerp(acceleration, 0, gameTime.ElapsedGameTime.Milliseconds/1000f * 4);
             }
+            
+            if (acceleration > 1) acceleration = 1;
+            if (acceleration < -1) acceleration = -1;
             
             if(!_physics.Grounded)
                 _animator.Play("Jump");
 
             if (input.X < 0)
-            {
                 s = SpriteEffects.FlipHorizontally;
-            }
             else if(input.X > 0)
-            {
                 s = SpriteEffects.None;
-            }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Space) && _physics.Grounded)
+            if (Input.IsKeyDown(Keys.Space) && _physics.Grounded)
                 _physics.Velocity = new Vector2(_physics.Velocity.X, -_jumpForce);
             
-            _physics.Velocity = new Vector2(input.X * _movementSpeed, _physics.Velocity.Y);
+            _physics.Velocity = new Vector2(_movementSpeed * acceleration * gameTime.ElapsedGameTime.Milliseconds/9f, _physics.Velocity.Y);
         }
 
         private void OnCollisionEnter(Sprite other)

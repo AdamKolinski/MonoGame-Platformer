@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
 
@@ -23,13 +24,13 @@ namespace MonoGameMario.Source.InputSystem
             }
             return 0;
         }
-        public static bool GetKeyDown(Keys key)
+        public static bool IsKeyDown(Keys key)
         {
-            GetState();
             return _currentKeyboardState.IsKeyDown(key) && !_previousKeyboardState.IsKeyDown(key);
         }
         public static void Update()
         {
+            GetState();
             foreach (var axis in Axes)
             {
                 if (Keyboard.GetState().IsKeyDown(axis.positiveKey)) axis.value = 1;

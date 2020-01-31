@@ -84,9 +84,10 @@ namespace MonoGameMario.Source
         {
             Input.Update();
             
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Input.GetKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Input.IsKeyDown(Keys.Escape))
                 Exit();
-            if (Input.GetKeyDown(Keys.L))
+
+            if (Input.IsKeyDown(Keys.P))
                 _camera.Lock = !_camera.Lock;
             
             _player.Update(gameTime);

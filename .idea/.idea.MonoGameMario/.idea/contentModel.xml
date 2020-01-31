@@ -5,7 +5,6 @@
       <e p="MonoGameMario" t="IncludeRecursive">
         <e p="app.manifest" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Camera.cs" t="Include" />
         <e p="Content" t="Include">
           <e p="Content.mgcb" t="Include" />
         </e>
@@ -21,6 +20,7 @@
             <e p="Animation.cs" t="Include" />
             <e p="Animator.cs" t="Include" />
           </e>
+          <e p="Camera.cs" t="Include" />
           <e p="Game1.cs" t="Include" />
           <e p="Helpers.cs" t="Include" />
           <e p="IDestructible.cs" t="Include" />
